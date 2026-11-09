@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SIGA-QA · Caça aos Bugs</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="js/store.js"></script>
+<script src="js/bugs.js"></script>
+</head>
+<body>
+
+<!-- Entrada -->
+<section id="tela-entrar" class="tela-cheia">
+  <div class="caixa">
+    <div class="bug-emoji">🐞</div>
+    <h1>Caça aos Bugs</h1>
+    <p>Você é a equipe de QA do <b>SIGA-QA</b>. Encontre os bugs escondidos no sistema antes do tempo acabar!</p>
+    <input id="in-sala" placeholder="Código da sala" maxlength="6" autocomplete="off" style="text-transform:uppercase">
+    <input id="in-nome" placeholder="Seu apelido" maxlength="16" autocomplete="off">
+    <div class="erro-txt" id="erro-entrar"></div>
+    <button class="btn full" id="bt-entrar">Entrar na sala</button>
+    <p style="margin:14px 0 0;font-size:13px"><button class="link" id="bt-solo">ou treinar sozinho(a)</button></p>
+  </div>
+</section>
+
+<!-- Espera -->
+<section id="tela-espera" class="tela-cheia oculto">
+  <div class="caixa">
+    <div class="bug-emoji">⏳</div>
+    <h1>Você está na sala!</h1>
+    <p>Olá, <b id="espera-nome"></b>. Aguarde a apresentadora começar o jogo.</p>
+    <div style="text-align:left;font-size:14px;line-height:1.5;background:#f4f6f9;border-radius:10px;padding:12px">
+      <b>Como jogar</b><br>
+      1. Navegue pelo sistema normalmente.<br>
+      2. Viu algo errado? Toque em <b>🐞 Achei um bug!</b> e depois <b>no lugar do bug</b>.<br>
+      3. Preencha o relato: categoria, severidade, esperado e obtido.<br>
+      <span style="color:#c62828">Cuidado: tocar onde não tem bug (falso positivo) tira 20 pontos.</span>
+    </div>
+  </div>
+</section>
+
+<!-- Jogo (clone) -->
+<section id="tela-jogo" class="oculto">
+  <div class="hud"><span class="tempo" id="hud-tempo">--:--</span><span id="hud-bugs">🐞 0</span><span id="hud-pontos">🏆 0</span></div>
+  <header class="cab">
+    <div class="logo">siga<span>·qa</span></div>
+    <div class="dir">
+      <button class="sino" data-ir="notificacoes" data-bug="notif" aria-label="Notificações">🔔<span class="badge">4</span></button>
+      <span class="ola">Olá, MARIA</span>
+      <button class="avatar" data-ir="dados" aria-label="Meus dados">MT</button>
+    </div>
+  </header>
+  <div class="faixa-treino">Versão de treino para a aula de QA · dados fictícios</div>
+  <main id="app"></main>
+  <nav class="rodape">
+    <button data-ir="inicio"><span class="ic">🏠</span>Início</button>
+    <button data-ir="inicio" data-rolar="meucurso"><span class="ic">🏛️</span>Meu Curso</button>
+    <button data-acao="sair"><span class="ic">🚪</span>Sair</button>
+  </nav>
+  <button class="fab" id="fab">🐞 Achei um bug!</button>
+</section>
+
+<!-- Fim -->
+<section id="tela-fim" class="tela-cheia oculto">
+  <div class="caixa">
+    <div class="bug-emoji">🏁</div>
+    <h1>Tempo esgotado!</h1>
+    <p>Sua pontuação final</p>
+    <div class="grande" id="fim-pontos">0</div>
+    <p id="fim-resumo"></p>
+    <p style="font-size:13px">Olhe para o telão: vamos revelar todos os bugs!</p>
+    <button class="btn sec oculto" id="bt-de-novo">Treinar de novo</button>
+  </div>
+</section>
+
+<script src="js/jogo.js"></script>
+</body>
+</html>
