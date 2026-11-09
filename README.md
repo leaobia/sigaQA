@@ -23,12 +23,12 @@ A turma joga pelo celular (QR code) e o telão mostra o ranking ao vivo, estilo 
 
 ## 2. Publicar no GitHub Pages
 
-1. Crie um repositório público, ex.: `leaobia/siga-qa`.
+1. Publique os arquivos deste projeto no repositório `leaobia/sigaQA` (os arquivos HTML, JavaScript e CSS ficam todos na raiz).
 2. Suba **todos os arquivos desta pasta** (pode arrastar pelo site do GitHub em *Add file → Upload files*).
 3. Em **Settings → Pages**: *Source* = `Deploy from a branch`, *Branch* = `main` / `(root)` → **Save**.
 4. Depois de 1 ou 2 minutos, o site fica no ar em:
-   - Telão: `https://leaobia.github.io/siga-qa/telao.html`
-   - Jogadores: o QR code do telão já aponta para `.../index.html?sala=CÓDIGO`
+   - Telão: `https://leaobia.github.io/sigaQA/telao.html`
+   - Jogadores: o QR code do telão aponta para `https://leaobia.github.io/sigaQA/index.html?sala=CÓDIGO`
 
 ## 3. No dia da apresentação (bloco de 15 min)
 
@@ -47,9 +47,9 @@ A turma joga pelo celular (QR code) e o telão mostra o ranking ao vivo, estilo 
 
 ## Ensaio e plano B
 
-- **Sem configurar o Firebase**, o jogo roda em *modo ensaio*: abra o `telao.html` e, **no mesmo navegador**, abra o link do jogador em outras abas. Assim você treina o roteiro inteiro sozinha.
+- **Sem configurar o Firebase**, o jogo roda em *modo ensaio*: abra o `telao.html` e, **no mesmo navegador e dispositivo**, abra o link do jogador em outras abas. Assim você treina o roteiro inteiro sozinha; esse modo não sincroniza celulares diferentes.
 - Se a internet da sala cair no dia, os celulares ainda podem jogar no 4G. Em último caso, cada pessoa abre o `index.html` e toca em **"treinar sozinho(a)"**: sem placar ao vivo, mas cada um vê a própria pontuação no fim.
-- Ensaie com 2 ou 3 celulares de amigos pelo menos uma vez antes, com o Firebase já configurado.
+- Para testar com celulares diferentes, configure o Firebase nos passos acima e ensaie com 2 ou 3 aparelhos. As regras de `database.rules.json` permitem leitura e escrita públicas; use somente dados fictícios e não reutilize esse banco para dados reais.
 
 ## Os 12 bugs (cola para a apresentadora 🤫)
 
@@ -73,4 +73,4 @@ A turma joga pelo celular (QR code) e o telão mostra o ranking ao vivo, estilo 
 - Histórico: Banco de Dados com média **6,0** está aprovada (≥ 6,0), e Programação Web com **75%** também.
 - Ética com 60% **deve** ter o ⚠.
 
-Para mudar bugs, textos ou pontuação: `js/bugs.js` (lista e pontos) e `js/jogo.js` (telas do clone; procure por `BUG plantado`).
+Para mudar bugs, textos ou pontuação: `bugs.js` (lista e pontos) e `jogo.js` (telas do clone; procure por `BUG plantado`).
