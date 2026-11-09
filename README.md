@@ -24,9 +24,8 @@ A turma joga pelo celular (QR code) e o telão mostra o ranking ao vivo, estilo 
 ## 2. Publicar no GitHub Pages
 
 1. Publique os arquivos deste projeto no repositório `leaobia/sigaQA` (os arquivos HTML, JavaScript e CSS ficam todos na raiz).
-2. Suba **todos os arquivos desta pasta** (pode arrastar pelo site do GitHub em *Add file → Upload files*).
-3. Em **Settings → Pages**: *Source* = `Deploy from a branch`, *Branch* = `main` / `(root)` → **Save**.
-4. Depois de 1 ou 2 minutos, o site fica no ar em:
+2. Em [**Settings → Pages**](https://github.com/leaobia/sigaQA/settings/pages): *Source* = `Deploy from a branch`, *Branch* = `main` / `(root)` → **Save**.
+3. Depois de 1 ou 2 minutos, o site fica no ar em:
    - Telão: `https://leaobia.github.io/sigaQA/telao.html`
    - Jogadores: o QR code do telão aponta para `https://leaobia.github.io/sigaQA/index.html?sala=CÓDIGO`
 
