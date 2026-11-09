@@ -1,0 +1,114 @@
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#222;background:#f4f5f7;font-size:15px;-webkit-tap-highlight-color:transparent}
+button{font:inherit;cursor:pointer}
+.oculto{display:none!important}
+
+/* ---------- telas de entrada / espera / fim ---------- */
+.tela-cheia{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:linear-gradient(160deg,#3b4654,#1f262f);color:#fff}
+.caixa{background:#fff;color:#222;border-radius:16px;padding:28px 24px;width:100%;max-width:380px;box-shadow:0 10px 40px rgba(0,0,0,.35);text-align:center}
+.caixa h1{margin:0 0 4px;font-size:26px}
+.caixa p{color:#555;margin:8px 0 18px;line-height:1.4}
+.caixa input,.caixa select{width:100%;padding:12px 14px;border:2px solid #cfd4da;border-radius:10px;font-size:17px;margin-bottom:12px}
+.caixa input:focus{outline:none;border-color:#2d6cdf}
+.btn{display:inline-block;border:0;border-radius:10px;padding:12px 18px;font-size:16px;font-weight:600;background:#2d6cdf;color:#fff}
+.btn.full{width:100%}
+.btn.sec{background:#e8ebef;color:#333}
+.btn.perigo{background:#d64545}
+.btn:disabled{opacity:.5}
+.marca{font-weight:700;letter-spacing:.5px}
+.marca small{font-weight:400;opacity:.75}
+.bug-emoji{font-size:54px;line-height:1}
+.erro-txt{color:#c62828;font-size:14px;min-height:18px}
+.grande{font-size:44px;font-weight:800;margin:8px 0}
+
+/* ---------- clone ---------- */
+.faixa-treino{background:#ffd54a;color:#4a3b00;font-size:12px;text-align:center;padding:3px 6px;font-weight:600}
+.hud{position:sticky;top:0;z-index:30;display:flex;justify-content:space-between;align-items:center;gap:8px;background:#11161c;color:#fff;padding:7px 12px;font-size:14px;font-weight:600}
+.hud .tempo.alerta{color:#ff6b6b}
+.cab{background:#5f6b7a;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px 14px;position:sticky;top:34px;z-index:20}
+.cab .logo{font-weight:700;font-size:16px;letter-spacing:.3px}
+.cab .logo span{font-weight:400;opacity:.8}
+.cab .dir{display:flex;align-items:center;gap:12px}
+.sino{position:relative;background:none;border:0;color:#fff;font-size:19px;padding:2px 4px}
+.sino .badge{position:absolute;top:-6px;right:-8px;background:#e53935;color:#fff;border-radius:10px;font-size:11px;font-weight:700;padding:1px 5px}
+.ola{font-size:14px}
+.avatar{width:32px;height:32px;border-radius:50%;background:#c8d6e5;color:#2c3e50;font-weight:700;font-size:13px;border:2px solid #fff;display:flex;align-items:center;justify-content:center}
+main#app{padding:14px 12px 90px;max-width:720px;margin:0 auto}
+.rodape{position:fixed;bottom:0;left:0;right:0;background:#333;display:flex;justify-content:space-around;padding:8px 0 10px;z-index:20}
+.rodape button{background:none;border:0;color:#fff;font-size:12px;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:80px}
+.rodape .ic{font-size:18px}
+
+.card{background:#fff;border:1px solid #e1e4e8;border-radius:10px;margin-bottom:12px;overflow:hidden}
+.card-cab{display:flex;align-items:center;gap:12px;padding:12px 14px}
+.card-cab .ic{width:36px;height:36px;border-radius:8px;background:#eef3fb;color:#2d6cdf;display:flex;align-items:center;justify-content:center;font-size:18px}
+.card-cab h3{margin:0;font-size:15px}
+.card-cab small{color:#777}
+.grade{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:0 12px 12px}
+.tile{background:#fff;border:1px solid #e1e4e8;border-radius:8px;padding:14px 6px;text-align:center;font-size:13px;font-weight:600;color:#333}
+.tile .ic{display:block;font-size:20px;margin-bottom:6px;color:#2d6cdf}
+.tile.apagado{color:#e4e6e9}
+.tile.apagado .ic{color:#e4e6e9}
+
+.barra-voltar{background:#dcdcdc;border-radius:6px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.barra-voltar button{background:none;border:0;color:#2d6cdf;font-size:15px;font-weight:600;padding:4px 0}
+.barra-voltar .tit{text-align:right}
+.barra-voltar .tit b{display:block;font-size:16px}
+.barra-voltar .tit small{color:#555}
+
+.disc-cab{background:#5f6b7a;color:#fff;padding:10px 12px}
+.disc-cab small{opacity:.85}
+.disc-cab b{display:block;font-size:15px;margin-top:2px}
+.linhas{padding:6px 12px 10px}
+.linha{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #eee;font-size:14px}
+.linha:last-child{border-bottom:0}
+.linha b{font-weight:700}
+.docente{font-size:12px;color:#555;padding:8px 12px 0}
+.aviso{color:#c77700}
+.ok{color:#2e7d32}
+.ruim{color:#c62828}
+.legenda{font-size:12px;color:#666;margin:4px 2px 12px}
+
+table.tab{width:100%;border-collapse:collapse;background:#fff;font-size:13px}
+table.tab th,table.tab td{border:1px solid #e1e4e8;padding:8px;text-align:left}
+table.tab th{background:#f0f2f5}
+
+.info-aluno .linha span{color:#666}
+.link{color:#2d6cdf;background:none;border:0;padding:10px 14px;font-size:13px}
+
+.abas{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+.abas button{background:#5f6b7a;color:#fff;border:0;border-radius:6px;padding:10px 4px;font-size:12px;font-weight:600}
+.abas button.ativa{background:#2b2f35}
+.dados-box{background:#fff;border:1px solid #ccc;border-radius:6px;padding:12px;font-size:13px;margin-bottom:12px}
+.dados-box .l{display:flex;gap:8px;padding:4px 0}
+.dados-box .l b{min-width:96px}
+.form-linha{display:flex;gap:8px;margin-top:8px}
+.form-linha input{flex:1;padding:10px;border:1px solid #bbb;border-radius:6px;font-size:15px}
+.msg-ok{color:#2e7d32;font-size:13px;margin-top:8px}
+.msg-erro{color:#c62828;font-size:13px;margin-top:8px}
+.spinner{width:44px;height:44px;border:5px solid #ddd;border-top-color:#2d6cdf;border-radius:50%;animation:gira 1s linear infinite;margin:24px auto 12px}
+@keyframes gira{to{transform:rotate(360deg)}}
+.vazio{text-align:center;color:#555;padding:30px 10px;background:#fff;border-radius:8px;border:1px solid #e1e4e8}
+
+/* ---------- modo caça ---------- */
+.fab{position:fixed;right:14px;bottom:78px;z-index:40;background:#e53935;color:#fff;border:0;border-radius:30px;padding:14px 18px;font-size:16px;font-weight:700;box-shadow:0 6px 18px rgba(229,57,53,.5)}
+body.cacando .fab{background:#555;box-shadow:none}
+.banner-caca{position:fixed;left:0;right:0;top:0;z-index:50;background:#e53935;color:#fff;text-align:center;padding:12px;font-weight:700;font-size:15px;animation:pisca 1.2s ease-in-out infinite}
+@keyframes pisca{50%{background:#b71c1c}}
+body.cacando main#app,body.cacando .cab,body.cacando .rodape{cursor:crosshair;outline:3px dashed #e53935;outline-offset:-3px}
+
+.modal-fundo{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:60;display:flex;align-items:flex-end;justify-content:center}
+.modal{background:#fff;width:100%;max-width:520px;border-radius:16px 16px 0 0;padding:18px 16px 22px;max-height:92vh;overflow:auto}
+.modal h2{margin:0 0 4px;font-size:19px}
+.modal label{display:block;font-size:13px;font-weight:700;margin:12px 0 4px;color:#333}
+.modal select,.modal textarea{width:100%;padding:10px;border:1px solid #bbb;border-radius:8px;font-size:15px;font-family:inherit}
+.modal textarea{min-height:58px;resize:vertical}
+.modal .dica{font-size:12px;color:#777}
+.modal .acoes{display:flex;gap:8px;margin-top:16px}
+.modal .acoes .btn{flex:1}
+.resultado li{margin:4px 0;list-style:none}
+.resultado{padding:0;margin:10px 0}
+
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:140px;background:#222;color:#fff;padding:12px 16px;border-radius:10px;z-index:70;font-size:14px;max-width:90%;text-align:center;box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.toast.ruim{background:#b71c1c}
+.toast.bom{background:#2e7d32}
