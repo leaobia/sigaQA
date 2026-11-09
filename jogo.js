@@ -353,15 +353,11 @@ function abrirRelato(id) {
   const fundo = document.createElement('div'); fundo.className = 'modal-fundo'; fundo.id = 'modal';
   fundo.innerHTML = `<div class="modal">
     <h2>🎯 Bug encontrado!</h2>
-    <div class="dica">Agora escreva o relato. Um bom relato vale até ${P.categoria + P.severidade + P.esperado + P.obtido} pontos a mais.</div>
+    <div class="dica">Escolha a categoria e a severidade para ganhar até ${P.categoria + P.severidade} pontos a mais.</div>
     <label>Categoria</label>
     <select id="r-cat"><option value="">Escolha…</option>${window.CATEGORIAS.map(c => `<option>${c}</option>`).join('')}</select>
     <label>Severidade</label>
     <select id="r-sev"><option value="">Escolha…</option>${window.SEVERIDADES.map(c => `<option>${c}</option>`).join('')}</select>
-    <label>Resultado esperado</label>
-    <textarea id="r-esp" placeholder="O que deveria acontecer?"></textarea>
-    <label>Resultado obtido</label>
-    <textarea id="r-obt" placeholder="O que aconteceu de fato?"></textarea>
     <div class="erro-txt" id="r-erro"></div>
     <div class="acoes"><button class="btn sec" id="r-cancelar">Cancelar</button><button class="btn" id="r-enviar">Enviar relato</button></div>
   </div>`;
@@ -369,7 +365,7 @@ function abrirRelato(id) {
   $('#r-cancelar').onclick = fecharModal;
   $('#r-enviar').onclick = () => {
     if (fase !== 'jogo') return fecharModal();
-    const r = { cat: $('#r-cat').value, sev: $('#r-sev').value, esperado: $('#r-esp').value, obtido: $('#r-obt').value };
+    const r = { cat: $('#r-cat').value, sev: $('#r-sev').value };
     if (!r.cat || !r.sev) return ($('#r-erro').textContent = 'Escolha a categoria e a severidade.');
     const det = window.pontuarRelato(bug, r);
     achados[id] = det.total; atualizarHud(); sincronizar(id, det.total);
@@ -381,8 +377,6 @@ function abrirRelato(id) {
         ${item(true, 'Bug encontrado', det.achou)}
         ${item(det.categoria, det.categoria ? 'Categoria certa' : 'Categoria — esperado: ' + bug.cats.join(' ou '), det.categoria)}
         ${item(det.severidade, det.severidade ? 'Severidade certa' : 'Severidade — esperado: ' + bug.sevs.join(' ou '), det.severidade)}
-        ${item(det.esperado, det.esperado ? 'Resultado esperado descrito' : 'Resultado esperado muito curto', det.esperado)}
-        ${item(det.obtido, det.obtido ? 'Resultado obtido descrito' : 'Resultado obtido muito curto', det.obtido)}
       </ul>
       <div class="acoes"><button class="btn" id="r-ok">Continuar caçando</button></div>`;
     $('#r-ok').onclick = fecharModal;

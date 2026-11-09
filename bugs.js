@@ -13,7 +13,7 @@ window.CATEGORIAS = [
 ];
 window.SEVERIDADES = ['Baixa', 'Média', 'Alta', 'Crítica'];
 
-window.PONTOS = { achou: 100, categoria: 30, severidade: 20, esperado: 20, obtido: 20, falsoPositivo: -20 };
+window.PONTOS = { achou: 100, categoria: 50, severidade: 40, falsoPositivo: -20 };
 
 window.BUGS = [
   { id: 'notif', titulo: 'Sino diz 4 notificações, mas a lista está vazia', onde: 'Cabeçalho → sino de notificações',
@@ -57,8 +57,7 @@ window.BUGS = [
 // Calcula a pontuação de um relato
 window.pontuarRelato = function (bug, r) {
   const P = window.PONTOS;
-  const det = { achou: P.achou, categoria: bug.cats.includes(r.cat) ? P.categoria : 0, severidade: bug.sevs.includes(r.sev) ? P.severidade : 0,
-    esperado: (r.esperado || '').trim().length >= 10 ? P.esperado : 0, obtido: (r.obtido || '').trim().length >= 10 ? P.obtido : 0 };
-  det.total = det.achou + det.categoria + det.severidade + det.esperado + det.obtido;
+  const det = { achou: P.achou, categoria: bug.cats.includes(r.cat) ? P.categoria : 0, severidade: bug.sevs.includes(r.sev) ? P.severidade : 0 };
+  det.total = det.achou + det.categoria + det.severidade;
   return det;
 };

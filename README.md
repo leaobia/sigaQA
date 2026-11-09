@@ -1,3 +1,5 @@
+**Pontuação por bug:** 100 por encontrar + 50 pela categoria certa + 40 pela severidade certa (máximo de 190). Falso positivo: −20 pontos.
+
 ## Os 12 bugs 
 
 | # | Bug | Onde | Categoria |
