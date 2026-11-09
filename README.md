@@ -8,7 +8,9 @@ A turma joga pelo celular (QR code) e o telão mostra o ranking ao vivo, estilo 
 
 ---
 
-## 1. Criar o Firebase (≈10 min, grátis)
+## 1. Configurar o Firebase
+
+O arquivo `firebase-config.js` já contém a configuração do projeto `siga-qa`. Para jogar em dispositivos diferentes, confirme no console do Firebase que o Realtime Database foi criado e que as regras foram publicadas. Para usar outro projeto:
 
 1. Acesse https://console.firebase.google.com e clique em **Adicionar projeto** (pode desativar o Google Analytics).
 2. No menu da esquerda: **Criação → Realtime Database → Criar banco de dados**.
@@ -16,7 +18,7 @@ A turma joga pelo celular (QR code) e o telão mostra o ranking ao vivo, estilo 
    - Modo: **Iniciar no modo bloqueado** (a gente troca as regras já já).
 3. Na aba **Regras** do Realtime Database, apague tudo, cole o conteúdo de `database.rules.json` e clique em **Publicar**.
 4. Volte à página inicial do projeto, clique no ícone **`</>` (Web)**, dê um nome (ex.: `siga-qa`) e **registre o app** (sem marcar Hosting).
-5. O Firebase mostra um bloco `const firebaseConfig = { ... }`. Copie os valores para o arquivo **`firebase-config.js`**, substituindo o `COLE_AQUI`.
+5. O Firebase mostra um bloco `const firebaseConfig = { ... }`. Copie os valores para o arquivo **`firebase-config.js`**, substituindo a configuração existente.
    - Confira se o `databaseURL` veio preenchido (algo como `https://siga-qa-xxxx-default-rtdb.firebaseio.com`). Se não vier, copie a URL que aparece no topo da página do Realtime Database.
 
 > A chave `apiKey` do Firebase não é secreta: ela fica visível em qualquer site que usa Firebase. Quem protege os dados são as regras do passo 3.
@@ -46,7 +48,7 @@ A turma joga pelo celular (QR code) e o telão mostra o ranking ao vivo, estilo 
 
 ## Ensaio e plano B
 
-- **Sem configurar o Firebase**, o jogo roda em *modo ensaio*: abra o `telao.html` e, **no mesmo navegador e dispositivo**, abra o link do jogador em outras abas. Assim você treina o roteiro inteiro sozinha; esse modo não sincroniza celulares diferentes.
+- **Em modo ensaio** (sem configuração do Firebase ou sem carregar sua biblioteca), abra o `telao.html` e, **no mesmo navegador e dispositivo**, abra o link do jogador em outras abas. Assim você treina o roteiro inteiro sozinha; esse modo não sincroniza celulares diferentes.
 - Se a internet da sala cair no dia, os celulares ainda podem jogar no 4G. Em último caso, cada pessoa abre o `index.html` e toca em **"treinar sozinho(a)"**: sem placar ao vivo, mas cada um vê a própria pontuação no fim.
 - Para testar com celulares diferentes, configure o Firebase nos passos acima e ensaie com 2 ou 3 aparelhos. As regras de `database.rules.json` permitem leitura e escrita públicas; use somente dados fictícios e não reutilize esse banco para dados reais.
 
