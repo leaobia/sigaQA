@@ -49,7 +49,7 @@ O arquivo `firebase-config.js` já contém a configuração do projeto `siga-qa`
 ## Ensaio e plano B
 
 - **Em modo ensaio** (sem configuração do Firebase ou sem carregar sua biblioteca), abra o `telao.html` e, **no mesmo navegador e dispositivo**, abra o link do jogador em outras abas. Assim você treina o roteiro inteiro sozinha; esse modo não sincroniza celulares diferentes.
-- Se a internet da sala cair no dia, os celulares ainda podem jogar no 4G. Em último caso, cada pessoa abre o `index.html` e toca em **"treinar sozinho(a)"**: sem placar ao vivo, mas cada um vê a própria pontuação no fim.
+- Se a internet da sala cair no dia, os celulares ainda podem jogar no 4G, desde que o telão também esteja conectado à internet.
 - Para testar com celulares diferentes, configure o Firebase nos passos acima e ensaie com 2 ou 3 aparelhos. As regras de `database.rules.json` permitem leitura e escrita públicas; use somente dados fictícios e não reutilize esse banco para dados reais.
 
 ## Os 12 bugs (cola para a apresentadora 🤫)

@@ -4,13 +4,11 @@ const $ = s => document.querySelector(s);
 const P = window.PONTOS;
 const BUG = Object.fromEntries(window.BUGS.map(b => [b.id, b]));
 const params = new URLSearchParams(location.search);
-const DURACAO_SOLO = 7 * 60;
 
 let sala = (params.get('sala') || '').toUpperCase();
 let pid = sessionStorage.getItem('sigaqa-pid');
 if (!pid) { pid = 'j' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7); sessionStorage.setItem('sigaqa-pid', pid); }
 let nome = sessionStorage.getItem('sigaqa-nome') || '';
-let solo = false;
 let achados = {};      // bugId -> pontos do relato
 let falsos = 0;
 let fimEm = null;      // timestamp de término
@@ -30,7 +28,6 @@ function mostrar(t) {
     $('#fim-pontos').textContent = pontos();
     const n = Object.keys(achados).length;
     $('#fim-resumo').textContent = `Você encontrou ${n} de ${window.BUGS.length} bugs` + (falsos ? ` e teve ${falsos} falso(s) positivo(s).` : '.');
-    $('#bt-de-novo').classList.toggle('oculto', !solo);
   }
 }
 
@@ -89,16 +86,8 @@ function aplicarEstado(est) {
   } else if (est.status === 'fim') mostrar('fim');
 }
 
-$('#bt-solo').onclick = iniciarSolo;
-$('#bt-de-novo').onclick = iniciarSolo;
-function iniciarSolo() {
-  solo = true; achados = {}; falsos = 0; pagina = 'inicio';
-  fimEm = Store.agora() + DURACAO_SOLO * 1000;
-  mostrar('jogo');
-}
-
 function sincronizar(bugId, pts) {
-  if (solo || !sala) return;
+  if (!sala) return;
   // "ultimo" = momento em que a pessoa chegou à pontuação atual (desempate: quem chegou antes vence)
   const upd = { pontos: pontos(), falsos, visto: Store.timestamp(), ultimo: Store.timestamp() };
   if (bugId) upd['achados/' + bugId] = pts;
